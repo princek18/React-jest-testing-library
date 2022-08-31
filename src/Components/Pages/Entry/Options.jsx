@@ -21,7 +21,7 @@ export const Options = ({ optionType }) => {
   const dataRender = data.map((one) => <RenderComponent data={one} />);
 
   if (error) {
-    return <div>Error Occured!</div>;
+    return <div data-testid="error">Error Occured!</div>;
   }
 
   return <div className="wrapper">{dataRender}</div>;
