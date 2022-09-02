@@ -1,12 +1,15 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { ScoopsOptions } from "./ScoopsOptions";
 import { ToppingsOptions } from "./ToppingsOptions";
 import "./style.css";
+import { productsPrice } from "../../../Constants/Constants";
+import { DataContext } from "../../../Context/DataContextProvider";
 
 export const Options = ({ optionType }) => {
   const [data, setData] = useState([]);
   const [error, setError] = useState("");
+  const { price } = useContext(DataContext);
 
   useEffect(() => {
     axios
@@ -24,5 +27,20 @@ export const Options = ({ optionType }) => {
     return <div data-testid="error">Error Occured!</div>;
   }
 
-  return <div className="wrapper">{dataRender}</div>;
+  return (
+    <div className="out-wrapper">
+      <div className="head-wrapper">
+        <h2>{optionType[0].toUpperCase() + optionType.slice(1)}</h2>
+        <h2>
+          Each {optionType.slice(0, -1)} price: ${productsPrice[optionType]}
+        </h2>
+        <h2>
+          {optionType[0].toUpperCase() + optionType.slice(1)} Total: $
+          {price[optionType]}
+        </h2>
+      </div>
+
+      <div className="wrapper">{dataRender}</div>
+    </div>
+  );
 };

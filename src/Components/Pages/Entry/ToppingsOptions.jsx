@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
+import { DataContext } from "../../../Context/DataContextProvider";
 
 export const ToppingsOptions = ({ data }) => {
+  const { addFlavour } = useContext(DataContext);
+
+  const handleChange = (e) => {
+    if (e.target.checked === true) {
+      addFlavour("toppings", data.name, 1);
+    } else {
+      addFlavour("toppings", data.name);
+    }
+  };
   return (
     <div>
       <div>
@@ -11,7 +21,13 @@ export const ToppingsOptions = ({ data }) => {
         />
       </div>
       <div>
-        <h3>{data.name}</h3>
+        <label
+          style={{ marginRight: "5px", fontSize: "18px", fontWeight: "500" }}
+          htmlFor="toppingName"
+        >
+          {data.name}
+        </label>
+        <input type="checkbox" id="toppingName" onChange={handleChange} />
       </div>
     </div>
   );

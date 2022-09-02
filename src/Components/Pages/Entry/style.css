@@ -4,3 +4,11 @@
     justify-content: space-around;
     margin: 50px;
 }
+.head-wrapper{
+    text-align: left;
+}
+.out-wrapper{
+    width: 90%;
+    margin: auto;
+    margin-bottom: 20px; 
+}

@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen } from "../../../../TestUtils/test-overridden-RST";
 import { Options } from "../Options";
 
 test("Display images for each scoop option from server", async () => {

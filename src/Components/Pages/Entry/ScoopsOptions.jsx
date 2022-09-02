@@ -1,6 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import { DataContext } from "../../../Context/DataContextProvider";
 
 export const ScoopsOptions = ({ data }) => {
+  const { addFlavour } = useContext(DataContext);
+
+  const handleChange = (e) => {
+    addFlavour("scoops", data.name, e.target.value);
+  };
   return (
     <div>
       <div>
@@ -11,7 +17,20 @@ export const ScoopsOptions = ({ data }) => {
         />
       </div>
       <div>
-        <h3>{data.name}</h3>
+        <label
+          style={{ marginRight: "5px", fontSize: "18px", fontWeight: "500" }}
+          htmlFor="scoopName"
+        >
+          {data.name}
+        </label>
+        <input
+          defaultValue={0}
+          style={{ width: "15%" }}
+          type="number"
+          id="scoopName"
+          onChange={handleChange}
+          min={0}
+        />
       </div>
     </div>
   );
