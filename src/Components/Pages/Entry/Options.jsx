@@ -21,7 +21,9 @@ export const Options = ({ optionType }) => {
   const RenderComponent =
     optionType === "scoops" ? ScoopsOptions : ToppingsOptions;
 
-  const dataRender = data.map((one) => <RenderComponent data={one} />);
+  const dataRender = data.map((one) => (
+    <RenderComponent key={one.name} data={one} />
+  ));
 
   if (error) {
     return <div data-testid="error">Error Occured!</div>;
