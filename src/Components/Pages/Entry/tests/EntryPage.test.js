@@ -14,9 +14,6 @@ test("check scoops sub total is working properly", async () => {
   userEvent.type(allScoops[0], "2");
   expect(subTotal).toHaveTextContent(4);
 
-  //   const chocolateScoop = await screen.findByRole("spinbutton", {
-  //     name: /Chocolate/i,
-  //   });
   userEvent.clear(allScoops[1]);
   userEvent.type(allScoops[1], "2");
   expect(subTotal).toHaveTextContent(8);
@@ -38,9 +35,6 @@ test("check toppings sub total is working properly", async () => {
   userEvent.click(allToppings[0]);
   expect(subTotal).toHaveTextContent(1.5);
 
-  //   const mochi = await screen.findByRole("checkbox", {
-  //     name: /Mochi/i,
-  //   });
   userEvent.click(allToppings[1]);
   expect(subTotal).toHaveTextContent(3);
 

@@ -46,8 +46,15 @@ export const DataContextProvider = ({ children }) => {
     }
   };
 
+  const resetSundae = () => {
+    setSunade({
+      scoops: {},
+      toppings: [],
+    });
+  };
+
   return (
-    <DataContext.Provider value={{ price, sundae, addFlavour }}>
+    <DataContext.Provider value={{ price, sundae, addFlavour, resetSundae }}>
       {children}
     </DataContext.Provider>
   );

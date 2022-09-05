@@ -1,11 +1,15 @@
 import { Tooltip } from "@mui/material";
 import React, { useState } from "react";
 
-export const SummaryForm = () => {
+export const SummaryForm = ({ navigate }) => {
   const [toggle, setToggle] = useState(false);
 
   const handleToggle = () => {
     setToggle(!toggle);
+  };
+
+  const handleSubmit = () => {
+    navigate("/confirmation");
   };
   return (
     <div>
@@ -20,8 +24,10 @@ export const SummaryForm = () => {
           <span>Terms and Conditions.</span>
         </Tooltip>
       </label>
-      <div>
-        <button disabled={!toggle}>Confirm Order</button>
+      <div style={{ marginTop: "20px" }}>
+        <button disabled={!toggle} onClick={handleSubmit}>
+          Confirm Order
+        </button>
       </div>
     </div>
   );
